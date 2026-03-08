@@ -1,0 +1,27 @@
+services:
+  spamassassin:
+    image: instantlinux/spamassassin:latest
+    restart: unless-stopped
+    environment:
+      - EXTRA_OPTIONS=--allow-tell
+    volumes:
+      - bayes_db:/var/lib/spamassassin
+      - ./spamassassin/local.cf:/etc/mail/spamassassin/local.cf:ro
+    networks:
+      - internal
+
+  scanner:
+    build: ./scanner
+    restart: unless-stopped
+    depends_on:
+      - spamassassin
+    volumes:
+      - ./config.lua:/app/config.lua:ro
+    networks:
+      - internal
+
+volumes:
+  bayes_db:
+
+networks:
+  internal:

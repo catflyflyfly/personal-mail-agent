@@ -1,0 +1,26 @@
+config = {
+    scan_interval = 300,
+    spam_threshold = 5.0,
+    dry_run = true,
+
+    defaults = {
+        port = 993,
+        spam_folder = "Junk",
+        learn_spam_folder = "LearnSpam",
+        learn_ham_folder = "LearnHam",
+    },
+
+    accounts = {
+        {
+            host = "imap.gmail.com",
+            user = "user@gmail.com",
+            password = "app-password-here",
+            spam_folder = "[Gmail]/Spam",
+        },
+        -- {
+        --     host = "outlook.office365.com",
+        --     user = "user@outlook.com",
+        --     password = "app-password-here",
+        -- },
+    },
+}

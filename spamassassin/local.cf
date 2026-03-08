@@ -1,0 +1,34 @@
+# Enable Bayes learning
+use_bayes 1
+bayes_auto_learn 1
+bayes_auto_learn_threshold_spam 6.0
+bayes_auto_learn_threshold_nonspam 0.1
+bayes_path /var/lib/spamassassin/bayes
+
+# Score threshold (messages above this are spam)
+required_score 5.0
+
+# Bayes scoring
+score BAYES_99 4.0
+score BAYES_95 3.5
+score BAYES_80 3.0
+score BAYES_60 2.0
+score BAYES_50 1.5
+
+# Report settings
+report_safe 0
+add_header all Status _YESNO_
+add_header all Score _SCORE_
+add_header all Report _REPORT_
+
+# Network tests (DNS-based blocklists)
+skip_rbl_checks 0
+dns_available yes
+
+# Trusted networks (internal docker network)
+clear_trusted_networks
+trusted_networks 172.16.0.0/12
+internal_networks 172.16.0.0/12
+
+# Listen on all interfaces for spamd
+allow_tell 1
