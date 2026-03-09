@@ -1,1 +1,6 @@
-/config.lua
+/config/*
+!/config/*.example
+!/config/spamassassin
+/config/spamassassin/*
+!/config/spamassassin/*.example
+!/config/spamassassin/local.cf

@@ -1,4 +1,15 @@
 services:
+  personal-mail-agent:
+    image: ghcr.io/catflyflyfly/personal-mail-agent:latest
+    # build: .  # uncomment to build locally instead of pulling from ghcr.io
+    restart: unless-stopped
+    depends_on:
+      - spamassassin
+    volumes:
+      - ./config/agent.lua:/app/config.lua:ro
+    networks:
+      - internal
+
   spamassassin:
     image: instantlinux/spamassassin:latest
     restart: unless-stopped
@@ -6,17 +17,7 @@ services:
       - EXTRA_OPTIONS=--allow-tell
     volumes:
       - bayes_db:/var/lib/spamassassin
-      - ./spamassassin/local.cf:/etc/mail/spamassassin/local.cf:ro
-    networks:
-      - internal
-
-  scanner:
-    build: ./scanner
-    restart: unless-stopped
-    depends_on:
-      - spamassassin
-    volumes:
-      - ./config.lua:/app/config.lua:ro
+      - ./config/spamassassin:/etc/mail/spamassassin:ro
     networks:
       - internal
 

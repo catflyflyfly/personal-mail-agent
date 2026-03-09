@@ -162,6 +162,7 @@ function process(account, acct_cfg)
             end
         end
         if not dry_run then
+            to_learn_ham:add_flags({"SpamChecked"})
             to_learn_ham:move_messages(account.INBOX)
         end
     end

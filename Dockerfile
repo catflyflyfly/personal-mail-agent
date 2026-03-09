@@ -7,7 +7,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 COPY entrypoint.sh .
-COPY config.lua scanner.lua
+COPY main.lua main.lua
 
 RUN chmod +x entrypoint.sh
 

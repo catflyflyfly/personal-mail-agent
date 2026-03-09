@@ -8,12 +8,18 @@ bayes_path /var/lib/spamassassin/bayes
 # Score threshold (messages above this are spam)
 required_score 5.0
 
-# Bayes scoring
+# Bayes scoring — spam
 score BAYES_99 4.0
 score BAYES_95 3.5
 score BAYES_80 3.0
 score BAYES_60 2.0
 score BAYES_50 1.5
+
+# Bayes scoring — ham (trained messages pull score down)
+score BAYES_00 -4.0
+score BAYES_05 -3.0
+score BAYES_20 -1.5
+score BAYES_40 -0.5
 
 # Report settings
 report_safe 0
