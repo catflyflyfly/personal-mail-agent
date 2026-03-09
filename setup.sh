@@ -10,7 +10,7 @@ mkdir -p config/spamassassin
 echo "Downloading files..."
 curl -fsSL "$REPO/docker-compose.yml" -o docker-compose.yml
 curl -fsSL "$REPO/config/agent.lua.example" -o config/agent.lua
-curl -fsSL "$REPO/config/spamassassin/allowblocklist.cf.example" -o config/spamassassin/allowblocklist.cf
+curl -fsSL "$REPO/config/spamassassin/custom.cf.example" -o config/spamassassin/custom.cf
 curl -fsSL "$REPO/config/spamassassin/local.cf" -o config/spamassassin/local.cf
 
 echo ""

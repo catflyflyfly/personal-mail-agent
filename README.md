@@ -71,10 +71,10 @@ All `*.cf` files in `config/spamassassin/` are mounted into the SpamAssassin con
 Included files:
 
 - **`local.cf`** — main SpamAssassin config: scoring rules, Bayes settings, network checks. This is committed to the repo.
-- **`allowblocklist.cf`** — personal allow/blocklist. Copy from `allowblocklist.cf.example` to get started:
+- **`custom.cf`** — your personal overrides: allow/blocklists, score tweaks, extra rules. Copy from `custom.cf.example` to get started:
 
 ```bash
-cp config/spamassassin/allowblocklist.cf.example config/spamassassin/allowblocklist.cf
+cp config/spamassassin/custom.cf.example config/spamassassin/custom.cf
 ```
 
 ```
@@ -127,6 +127,6 @@ config/
   agent.lua.example             # agent config template
   spamassassin/
     local.cf                    # SpamAssassin rules and Bayes config
-    allowblocklist.cf.example   # allow/blocklist template
+    custom.cf.example           # custom rules template
 docker-compose.yml              # service definitions
 ```

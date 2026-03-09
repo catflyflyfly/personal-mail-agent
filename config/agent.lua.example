@@ -1,7 +1,8 @@
-config = {
+CONFIG = {
     scan_interval = 300,
     spam_threshold = 5.0,
     dry_run = true,
+    rescan = false,
 
     defaults = {
         port = 993,

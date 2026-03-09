@@ -1,3 +1,6 @@
+# Personal SpamAssassin overrides
+# Put your custom rules, score adjustments, and allow/blocklists here.
+
 # Allowlist — messages from these senders skip spam checks
 # whitelist_from user@example.com
 # whitelist_from *@trusted-domain.com
@@ -5,3 +8,6 @@
 # Blocklist — messages from these senders are always marked as spam
 # blacklist_from user@example.com
 # blacklist_from *@sketchy-domain.com
+
+# Score overrides
+# score RULE_NAME 0.0

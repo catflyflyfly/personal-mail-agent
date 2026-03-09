@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        // From imapfilter
+        "IMAP",
+        "Set",
+        "pipe_from",
+        "pipe_to"
+    ]
+}

@@ -35,6 +35,3 @@ dns_available yes
 clear_trusted_networks
 trusted_networks 172.16.0.0/12
 internal_networks 172.16.0.0/12
-
-# Listen on all interfaces for spamd
-allow_tell 1

@@ -1,7 +1,7 @@
 services:
   personal-mail-agent:
-    image: ghcr.io/catflyflyfly/personal-mail-agent:latest
-    # build: .  # uncomment to build locally instead of pulling from ghcr.io
+    # image: ghcr.io/catflyflyfly/personal-mail-agent:latest
+    build: .  # uncomment to build locally instead of pulling from ghcr.io
     restart: unless-stopped
     depends_on:
       - spamassassin
@@ -17,7 +17,8 @@ services:
       - EXTRA_OPTIONS=--allow-tell
     volumes:
       - bayes_db:/var/lib/spamassassin
-      - ./config/spamassassin:/etc/mail/spamassassin:ro
+      - ./config/spamassassin/local.cf:/etc/mail/spamassassin/local.cf:ro
+      - ./config/spamassassin/custom.cf:/etc/mail/spamassassin/custom.cf:ro
     networks:
       - internal
 
