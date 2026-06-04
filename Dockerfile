@@ -1,13 +1,11 @@
-FROM ubuntu:24.04
+FROM alpine:3.21
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends imapfilter spamc ca-certificates lua-socket && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache imapfilter spamassassin-client ca-certificates lua5.4-socket
 
 WORKDIR /app
 
 COPY entrypoint.sh .
-COPY main.lua main.lua
+COPY main.lua .
 
 RUN chmod +x entrypoint.sh
 
