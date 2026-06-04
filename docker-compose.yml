@@ -1,7 +1,7 @@
 services:
   personal-mail-agent:
-    # image: ghcr.io/catflyflyfly/personal-mail-agent:latest
-    build: .  # uncomment to build locally instead of pulling from ghcr.io
+    image: ghcr.io/catflyflyfly/personal-mail-agent:latest
+    # build: .  # uncomment to build locally instead of pulling from ghcr.io
     restart: unless-stopped
     depends_on:
       - spamassassin
