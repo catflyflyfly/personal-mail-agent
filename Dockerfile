@@ -1,6 +1,8 @@
-FROM alpine:3.21
+FROM debian:bookworm-slim
 
-RUN apk add --no-cache imapfilter spamassassin-client ca-certificates lua5.4-socket
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends imapfilter spamc ca-certificates lua-socket && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
